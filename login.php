@@ -1,3 +1,4 @@
+<?php if(!isset($_GET['page'])) header('location:index.php?page=login'); ?>
 <div style="height: 350px; width: 550px;  margin: 0 auto; border: 1px solid #5b9bd5; display: flex; justify-content:center;  flex-direction: column; align-items: center;" class="container_login">
             <form action="" method="post">
                  <div class="form-container" style="width: 450px; margin-left:255px;">
