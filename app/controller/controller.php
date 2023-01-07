@@ -234,6 +234,41 @@ class Controller extends Model
 			case 'user_add_complete':
 				include_once "./app/view/" . $page . ".php";
 				break;
+			case 'book_history':
+				$_SESSION['bookId'] = '';
+				$_SESSION['userId'] = '';
+				$books = array();
+				$users = array();
+				$data =array();
+				$result_book = $this->model->getAllBooks();
+				// var_dump($result_book);
+				foreach ($result_book as $key => $value) {
+					$books[] = $value;
+				}
+				$result_user = $this->model->getAllUsers();
+				foreach ($result_user as $key => $value) {
+					$users[] = $value;
+				}
+
+				$result_history = $this->model->getAllHistory();
+				foreach ($result_history as $key => $value) {
+					$data[] = $value;
+				}
+
+				if(isset($_POST["search--"])){
+					$data_search = array();
+					$bookId = $_POST["bookId"];
+					$userId = $_POST["userId"];
+					unset($result_history);
+					$result_history = $this->model->searchHistory($bookId, $userId);
+					foreach ($result_history as $key => $value) {
+						$data_search[] = $value;
+					}
+					$data = $data_search;
+
+				}
+				include_once "./app/view/" . $page . ".php";
+				break;
 		}
 	}
 }
