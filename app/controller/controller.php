@@ -10,24 +10,29 @@ class Controller extends Model
 
 	public function Controllers()
 	{
-		if (isset($_GET['page'])) {
-			if ($_GET['page'] != 'resetpassword') {
-				if (isset($_SESSION['authen'])) {
-					$page = $_GET["page"];
-				} else {
-					$page = 'login';
-				}
-			} else {
-				$page = 'resetpassword';
-			}
-		} elseif (isset($_SESSION['authen'])) {
-			$page = 'home';
-		} else {
-			$page = 'login';
-		}
+//		if (isset($_GET['page'])) {
+//			if ($_GET['page'] != 'resetpassword') {
+//				if (isset($_SESSION['authen'])) {
+//					$page = $_GET["page"];
+//				} else {
+//					$page = 'login';
+//				}
+//			} else {
+//				$page = 'resetpassword';
+//			}
+//		} elseif (isset($_SESSION['authen'])) {
+//			$page = 'home';
+//		} else {
+//			$page = 'login';
+//		}
+		$page = $_GET['page'];
 
 		//Login validation
 		switch ($page) {
+			case "transaction":
+				require_once "app/controller/TransactionController.php";
+				new TransactionController();
+				break;
 			case "home":
 				include_once "./app/view/" . $page . ".php";
 				break;

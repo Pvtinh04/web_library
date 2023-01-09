@@ -21,6 +21,7 @@ include_once 'app/model/model.php';
   <!-- Bootstrap DatePicker -->
   <link rel="stylesheet" href="./web/css/style_login.css" type="text/css" />
   <link rel="stylesheet" href="./web/css/ledger_return_book.css" type="text/css" />
+
   <!-- Bootstrap DatePicker -->
 
   <title>Web Library</title>
@@ -38,6 +39,7 @@ if (file_exists('app/view/' . $page . '.php')) {
     <?php
 
     include_once 'app/controller/controller.php';
+
     $controll = new Controller();
     $controll->Controllers();
     ?>
