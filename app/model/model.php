@@ -47,10 +47,19 @@
 
 		public function getAllHistory()
 		{
-			$query_history = "SELECT book_transactions.id AS id, book_transactions.return_plan_date AS return_plan_date, book_transactions.return_actual_date AS return_actual_date, books.id AS books_id, books.name AS books_name, users.id AS userid, users.name AS username FROM book_transactions 
-			JOIN books ON book_transactions.book_id = books.id 
-							JOIN users ON book_transactions.user_id = users.id 
-							ORDER BY book_transactions.id ASC";
+			$query_history = "SELECT 	book_transactions.id AS id,
+										COUNT(book_transactions.book_id) as times,
+										GROUP_CONCAT(book_transactions.borrowed_date SEPARATOR ',') AS borrowed_date,
+										GROUP_CONCAT(book_transactions.return_plan_date SEPARATOR ',') AS return_plan_date,
+										GROUP_CONCAT(book_transactions.return_actual_date SEPARATOR ',') AS return_actual_date, 
+										books.id AS books_id,
+										books.name AS books_name, 
+										GROUP_CONCAT(users.id SEPARATOR ',') AS userid, 
+										GROUP_CONCAT(users.name SEPARATOR ',') AS username FROM book_transactions 
+								JOIN books ON book_transactions.book_id = books.id 
+								JOIN users ON book_transactions.user_id = users.id 
+								GROUP BY book_transactions.book_id
+								ORDER BY book_transactions.id ASC";
 			return $this->pdo->query($query_history)->fetchAll(PDO::FETCH_ASSOC);
 		}
 
@@ -63,14 +72,45 @@
 			// return $this->pdo->query($query_history)->fetchAll(PDO::FETCH_ASSOC);
 			$query_history = '';
 			if ($bookId && $userId) {
-				$query_history = "SELECT book_transactions.id AS id, book_transactions.return_plan_date AS return_plan_date, book_transactions.return_actual_date AS return_actual_date, books.id AS books_id, books.name AS books_name, users.id AS users_id, users.name AS username FROM book_transactions JOIN books ON book_transactions.book_id = books.id JOIN users ON book_transactions.user_id = users.id WHERE books.id = '$bookId' AND users.id = '$userId' ORDER BY book_transactions.id ASC";
+				$query_history = "SELECT 	book_transactions.id AS id,
+				COUNT(book_transactions.book_id) as times,
+				GROUP_CONCAT(book_transactions.borrowed_date SEPARATOR ',') AS borrowed_date,
+				GROUP_CONCAT(book_transactions.return_plan_date SEPARATOR ',') AS return_plan_date,
+				GROUP_CONCAT(book_transactions.return_actual_date SEPARATOR ',') AS return_actual_date, 
+				books.id AS books_id,
+				books.name AS books_name, 
+				GROUP_CONCAT(users.id SEPARATOR ',') AS userid, 
+				GROUP_CONCAT(users.name SEPARATOR ',') AS username FROM book_transactions 
+		JOIN books ON book_transactions.book_id = books.id 
+		JOIN users ON book_transactions.user_id = users.id  And books.id = '$bookId' AND users.id = '$userId' ORDER BY book_transactions.id ASC";
 			} else if ($bookId) {
-				$query_history = "SELECT book_transactions.id AS id, book_transactions.return_plan_date AS return_plan_date, book_transactions.return_actual_date AS return_actual_date, books.id AS books_id, books.name AS books_name, users.id AS users_id, users.name AS username FROM book_transactions JOIN books ON book_transactions.book_id = books.id JOIN users ON book_transactions.user_id = users.id WHERE books.id = '$bookId' ORDER BY book_transactions.id ASC";
-			} else if ($userId) {
-				$query_history = "SELECT book_transactions.id AS id, book_transactions.return_plan_date AS return_plan_date, book_transactions.return_actual_date AS return_actual_date, books.id AS books_id, books.name AS books_name, users.id AS users_id, users.name AS username FROM book_transactions JOIN books ON book_transactions.book_id = books.id JOIN users ON book_transactions.user_id = users.id WHERE users.id = '$userId' ORDER BY book_transactions.id ASC";
+				$query_history = "SELECT 	book_transactions.id AS id,
+				COUNT(book_transactions.book_id) as times,
+				GROUP_CONCAT(book_transactions.borrowed_date SEPARATOR ',') AS borrowed_date,
+				GROUP_CONCAT(book_transactions.return_plan_date SEPARATOR ',') AS return_plan_date,
+				GROUP_CONCAT(book_transactions.return_actual_date SEPARATOR ',') AS return_actual_date, 
+				books.id AS books_id,
+				books.name AS books_name, 
+				GROUP_CONCAT(users.id SEPARATOR ',') AS userid, 
+				GROUP_CONCAT(users.name SEPARATOR ',') AS username FROM book_transactions 
+		JOIN books ON book_transactions.book_id = books.id 
+		JOIN users ON book_transactions.user_id = users.id  And books.id = '$bookId' ORDER BY book_transactions.id ASC";
 			} else {
-				$query_history = "SELECT book_transactions.id AS id, book_transactions.return_plan_date AS return_plan_date, book_transactions.return_actual_date AS return_actual_date, books.id AS books_id, books.name AS books_name, users.id AS users_id, users.name AS username FROM book_transactions JOIN books ON book_transactions.book_id = books.id JOIN users ON book_transactions.user_id = users.id ORDER BY book_transactions.id ASC";
-			}
+				$query_history = "SELECT 	book_transactions.id AS id,
+				COUNT(book_transactions.book_id) as times,
+				GROUP_CONCAT(book_transactions.borrowed_date SEPARATOR ',') AS borrowed_date,
+				GROUP_CONCAT(book_transactions.return_plan_date SEPARATOR ',') AS return_plan_date,
+				GROUP_CONCAT(book_transactions.return_actual_date SEPARATOR ',') AS return_actual_date, 
+				books.id AS books_id,
+				books.name AS books_name, 
+				GROUP_CONCAT(users.id SEPARATOR ',') AS userid, 
+				GROUP_CONCAT(users.name SEPARATOR ',') AS username FROM book_transactions 
+		JOIN books ON book_transactions.book_id = books.id 
+		JOIN users ON book_transactions.user_id = users.id  And users.id = '$userId' ORDER BY book_transactions.id ASC";
+			} 
+			// else {
+			// 	$query_history = "SELECT book_transactions.id AS id, book_transactions.return_plan_date AS return_plan_date, book_transactions.return_actual_date AS return_actual_date, books.id AS books_id, books.name AS books_name, users.id AS users_id, users.name AS username FROM book_transactions JOIN books ON book_transactions.book_id = books.id JOIN users ON book_transactions.user_id = users.id ORDER BY book_transactions.id ASC";
+			// }
 			return $this->pdo->query($query_history)->fetchAll(PDO::FETCH_ASSOC);
 		}
 

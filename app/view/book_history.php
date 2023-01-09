@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./web/css/style_book_history.css">
 </head>
 
@@ -62,13 +64,15 @@
             </div>
             <div class="list" style="
     display: grid;">
-                <table class="student-table">
+                <table class="student-table table">
                     <tr class="header">
-                        <th style="width:10%">No.</th>
-                        <th style="width:20%">Tên sách</th>
-                        <th style="width:30%">Thời gian dự kiến muộn</th>
-                        <th style="width:30%">Thời điểm trả</th>
-                        <th style="width:30%">Người mượn</th>
+                        <th scope="col">No.</th>
+                        <th scope="col">Tên sách</th>
+                        <th scope="col">Số lần mượn</th>
+                        <th scope="col">Thời gian dự kiến muộn</th>
+                        <th scope="col">Thời gian trả kiến muộn</th>
+                        <th scope="col">Thời điểm trả</th>
+                        <th scope="col">Người mượn</th>
                     </tr>
                     <?php
 
@@ -81,14 +85,16 @@
                         // }
                         // foreach($data as $item){
                         echo '
-              <tr >
-              <td style="width:10%">' . ($i + 1) . '</td>
-              <td style="width:20%">' . $data[$i]['books_name'] . '</td>
-              <td style="width:30%">' . $data[$i]['return_plan_date'] . '</td>
-              <td style="width:30%">' . $data[$i]['return_actual_date'] . '</td>
-              <td style="width:30%">' . $data[$i]['username'] . '</td>
-              </tr> 
-              ';
+                            <tr >
+                            <td scope="col">' . ($i + 1) . '</td>
+                            <td scope="col">' . $data[$i]['books_name'] . '</td>
+                            <td scope="col">'. $data[$i]['times'] .'</td>
+                            <td scope="col">'. $data[$i]['borrowed_date'] . '</td>
+                            <td scope="col">'. $data[$i]['return_plan_date'] . '</td>
+                            <td scope="col">' . $data[$i]['return_actual_date'] . '</td>
+                            <td scope="col">' . $data[$i]['username'] . '</td>
+                            </tr> 
+                        ';
                     }
                     ?>
                 </table>
@@ -98,9 +104,9 @@
     </div>
 
     <!-- Bootstrap -->
-    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
-    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
-    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css' media="screen" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
     <!-- Bootstrap DatePicker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" type="text/css" />
