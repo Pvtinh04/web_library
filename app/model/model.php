@@ -76,5 +76,42 @@ class Model extends Connect
 		}
 		return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
 	}
+
+	public function searchBook($cate, $keyword)
+	{
+		if ($cate && $keyword) {
+			$query_book = "SELECT *  FROM books WHERE category = '$cate' AND CONCAT(name, category, author, description) LIKE '%$keyword%' ORDER BY id DESC";
+		} else if ($cate) {
+			$query_book = "SELECT *  FROM books WHERE category = '$cate' ORDER BY id DESC";
+		} else if ($keyword) {
+			$query_book = "SELECT *  FROM books WHERE CONCAT(name, category, author, description) LIKE '%$keyword%' ORDER BY id DESC";
+		} else {
+			return [];
+		};
+		return $this->pdo->query($query_book)->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function listCategory()
+	{
+		$query_category = "SELECT category  FROM books GROUP BY category";
+		return $this->pdo->query($query_category)->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function checkBookInTransaction($id)
+	{
+		$query = "SELECT book_id  FROM book_transactions WHERE book_id = $id";
+		$result = $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+		if (count($result[0]) > 0) {
+			
+		} else {
+			return true;
+		}
+	}
+
+
+	public function getBook($id)
+	{
+		$query = "SELECT *  FROM books WHERE id = $id";
+		return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+	}
 }
-?>

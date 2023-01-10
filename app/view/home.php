@@ -1,4 +1,4 @@
-<?php if(!isset($_GET['page'])) header('location:../../index.php?page=home'); ?>
+<?php if(!isset($_GET['page'])) header('location:../../index.php?page=home');?>
 <div style="border: 1px solid #5b9bd5; height:500px" class="container">
     <div class="row" style="margin-bottom:5px;">
         <label for="">Tên login: <span><?php if (isset($_SESSION['authen'])) {
@@ -39,7 +39,7 @@
         <div class="col">
             <label for="">Sách</label>
             <ul class="list-group list-group-flush">
-                <a style="text-decoration: none" href="">
+                <a style="text-decoration: none" href="index.php?page=search_books">
                     <li style="color:blue;border:none" class="list-group-item">Tìm kiếm</li>
                 </a>
                 <a style="text-decoration: none" href="">
