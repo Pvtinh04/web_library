@@ -15,6 +15,9 @@ class TransactionController
             case "":
                 $this->search();
                 break;
+            case "query":
+                $this->query();
+                break;
         }
 
     }
@@ -32,13 +35,30 @@ class TransactionController
         die;
     }
 
+    public function query()
+    {
+        $book_id = isset($_GET['book_id']) ? $_GET['book_id'] : null;
+        $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : null;
+        $status = isset($_GET['status']) ? $_GET['status'] : null;
+        $query = [
+            "book_id" => $book_id,
+            "user_id" => $user_id,
+            "status" => $status
+        ];
+        $data = $this->model->getAllTransactionByParam($query);
+        header("Content-Type:application/json;charset=utf-8");
+        echo json_encode([
+            "data" => $data
+        ]);
+    }
+
     public function search()
     {
         $books = $this->model->getAllBooks();
         $users = $this->model->getAllUsers();
         $transactions = $this->model->getAllTransactions();
 
-        $this->view("transaction_search_advanced", [
+        return $this->view("transaction_search_advanced", [
             "books" => $books,
             "users" => $users,
             "transactions" => $transactions
