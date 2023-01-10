@@ -40,6 +40,9 @@ if (file_exists('app/view/' . $page . '.php')) {
     include_once 'app/controller/controller.php';
     $controll = new Controller();
     $controll->Controllers();
+
+    $userControllers = new BookController();
+    $userControllers->confirm();
     ?>
   </body>
 <?php

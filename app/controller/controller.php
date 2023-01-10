@@ -7,6 +7,16 @@ class Controller extends Model
 		$this->model = new Model();
 	}
 
+	/**
+     * View
+     */
+    public function view(string $path, array $data = []): void
+    {
+        if (is_array($data)) {
+            extract($data);
+        }
+        require(ROOT . '/app/views/' . $path . '.php');
+    }
 
 	public function Controllers()
 	{
@@ -280,5 +290,6 @@ class Controller extends Model
 				break;
 		}
 	}
+
 }
 ?>

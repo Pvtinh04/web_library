@@ -76,5 +76,15 @@ class Model extends Connect
 		}
 		return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
 	}
+
+	/**
+     * Bind
+     */
+    public function bind(object $stmt, array $data): void
+    {
+        foreach ($data as $key => $value) {
+            $stmt->bindValue(':' . $key, $value);
+        }
+    }
 }
 ?>

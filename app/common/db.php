@@ -1,4 +1,7 @@
 <?php
+
+//include_once 'define.php';
+
 class Connect
 {
     protected $pdo = null;
@@ -12,6 +15,7 @@ class Connect
             echo $e->getMessage();
             exit();
         }
+        return $pdo;
     }
 }
 // include_once('./app/common/define.php');
