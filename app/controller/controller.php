@@ -278,7 +278,37 @@ class Controller extends Model
 				}
 				include_once "./app/view/" . $page . ".php";
 				break;
+
+			case 'search_books':
+				$search_books_result = [];
+				if (isset($_POST['submit_search'])) {
+					$search_cate = isset($_POST['khoa']) ? $_POST['khoa'] : '';
+					$keyword = isset($_POST['keyword_search_book']) ? trim($_POST['keyword_search_book']) : '';
+					$search_books_result = $this->model->searchBook($search_cate, $keyword);
+				}
+				$listCate = $this->model->listCategory();
+				include_once "./app/view/" . $page . ".php";
+				break;
+
+			case 'book_detail':
+				if (!isset($_GET["book_id"])) {
+					header('location:index.php?page=search_books');
+				} else {
+					$book = $this->model->getBook($_GET["book_id"]);
+					var_dump($book);
+				}
+				include_once "./app/view/" . $page . ".php";
+				break;
+
+			case 'edit_book':
+				if (!isset($_GET["book_id"])) {
+					header('location:index.php?page=search_books');
+				} else {
+					$book = $this->model->getBook($_GET["book_id"]);
+					var_dump($book);
+				}
+				include_once "./app/view/" . $page . ".php";
+				break;
 		}
 	}
 }
-?>
