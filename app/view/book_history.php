@@ -69,8 +69,8 @@
                         <th scope="col">No.</th>
                         <th scope="col">Tên sách</th>
                         <th scope="col">Số lần mượn</th>
-                        <th scope="col">Thời gian dự kiến muộn</th>
-                        <th scope="col">Thời gian trả kiến muộn</th>
+                        <th scope="col">Thời gian dự kiến mượn</th>
+                        <th scope="col">Thời gian dự kiến trả</th>
                         <th scope="col">Thời điểm trả</th>
                         <th scope="col">Người mượn</th>
                     </tr>
@@ -84,15 +84,15 @@
                         //     }
                         // }
                         // foreach($data as $item){
-                        echo '
+                            echo '
                             <tr >
                             <td scope="col">' . ($i + 1) . '</td>
                             <td scope="col">' . $data[$i]['books_name'] . '</td>
-                            <td scope="col">'. $data[$i]['times'] .'</td>
-                            <td scope="col">'. $data[$i]['borrowed_date'] . '</td>
-                            <td scope="col">'. $data[$i]['return_plan_date'] . '</td>
-                            <td scope="col">' . $data[$i]['return_actual_date'] . '</td>
-                            <td scope="col">' . $data[$i]['username'] . '</td>
+                            <td scope="col">' . $data[$i]['times'] . '</td>
+                            <td scope="col">' . str_replace(',', '<br>', $data[$i]['borrowed_date']) . '</td>
+                            <td scope="col">' . str_replace(',', '<br>', $data[$i]['return_plan_date']) . '</td>
+                            <td scope="col">' . str_replace(',', '<br>', $data[$i]['return_actual_date']) . '</td>
+                            <td scope="col">' . str_replace(',', '<br>', $data[$i]['username']) . '</td>
                             </tr> 
                         ';
                     }
