@@ -18,7 +18,7 @@ class Book extends Model
             ->insertInto('books (name, category, author, quantity, avatar, description, created_at, updated_at)')
             ->values('(:name, :category, :author, :quantity, :avatar, :description, :created_at, :updated_at)')
             ->get();
-        $stmt = $this->connect->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
         $this->bind($stmt, $data);
         $stmt->execute();
     }
