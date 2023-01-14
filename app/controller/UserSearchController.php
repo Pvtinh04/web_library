@@ -19,6 +19,11 @@
                         $keyword = isset($_POST['keyword_search_user']) ? trim($_POST['keyword_search_user']) : '';
                         $search_users_result = $this->model->searchUser($search_type, $keyword);
                     }
+                    if (isset($_GET['id'])){
+                        
+                        $this->model->delUser($_GET['id']);
+                        header('Location:index.php?page=user_search');
+                    }
                     $listType = $this->listType;
 					include_once "./app/view/".$page.".php";
 					break;

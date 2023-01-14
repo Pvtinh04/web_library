@@ -54,9 +54,14 @@ Class UserModel extends Model
     }
 
 
-    public function getBook($id)
+    public function getUser($id)
     {
-        $query = "SELECT *  FROM books WHERE id = $id";
+        $query = "SELECT *  FROM users WHERE id = $id";
+        return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function delUser($id)
+    {
+        $query = "DELETE  FROM users WHERE id = $id";
         return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 }

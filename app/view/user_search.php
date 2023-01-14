@@ -43,19 +43,20 @@
         <tbody>
             <?php
             foreach ($search_users_result as $key => $value) {
-                echo ("
+                ?>
                 <tr>
-                    <th scope='row'>" . $key + 1 . "</th> 
-                    <td class=''>" . $value["user_id"] . "</td>
-                    <td class='w-25'><a style='color: black; text-decoration: none' href='index.php?page=book_detail&book_id=" . $value["id"] . "'>" . $value["name"] . "</a></td>
-                    <td class='' style='width: 10%'>" . $listType[$value["type"]] . "</td>
-                    <td class='w-25'>" . $value["description"] . "</td>
+                    <th scope='row'> <?php  echo $key + 1 ?> </th> 
+                    <td class=''><?php echo $value["user_id"] ?> </td>
+                    <td class='w-25'><a style='color: black; text-decoration: none' href='index.php?page=user_detail&user_id=<?php echo $value["id"] ?>'> <?php echo $value["name"] ?></a></td>
+                    <td class='' style='width: 10%'> <?php echo $listType[$value["type"]] ?> </td>
+                    <td class='w-25'> <?php echo $value["description"] ?> </td>
                     <td style='width: 20%'>
-                        <button type='button' class='btn delete-product' data-bs-toggle='modal' data-bs-target='#exampleModal' data-id='" . $value["id"] . "'>Xoá</button>
+                        <!-- <button type='button' class='btn delete-product' data-bs-toggle='modal' data-bs-target='#exampleModal' data-id='" . $value["id"] . "'>Xoá</button> -->
+                        <a class='btn ' href='javascript:deluser(<?php echo $value['id'] ?>,"<?php echo $value['name'] ?>")'>Xóa</a>
                         <a class='btn edit-product' href='index.php?page=book_edit_input_view&id=" . $value["id"] . "'>Sửa</a>
                     </td>
                 </tr>
-                ");
+                <?php
             }
             ?>
         </tbody>
@@ -71,7 +72,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Bạn có chắc chắn muốn xoá ko?
+                Bạn có chắc chắn muốn xoá <?php ?>?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
@@ -81,7 +82,7 @@
     </div>
 </div>
 
-<script>
+<!-- <script>
     $('.delete-product').on('click', function(e) {
         var id = $(this).attr('data-id');
         $('.delete-user-confirm').attr('data-id', id);
@@ -92,4 +93,15 @@
         console.log(id);
         // location.href="hapusperusahaan.php?id="+id;
     });
-</script>
+</script> -->
+<script>
+    function deluser(id,name){
+        var id = id;
+        var name = name;
+        var msg = confirm("Bạn chắn chắn muốn xóa user "+name +"?");
+
+    if (msg) {
+        window.location = "index.php?page=user_search&id="+id;
+    }
+    }
+    </script>
