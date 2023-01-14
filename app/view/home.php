@@ -17,7 +17,7 @@
         <div class="col">
             <label for="">Người dùng</label>
             <ul class="list-group list-group-flush">
-                <a style="text-decoration: none" href="">
+                <a style="text-decoration: none" href="index.php?page=user_search">
                     <li style="color:blue;border:none" class="list-group-item">Tìm kiếm</li>
                 </a>
                 <a style="text-decoration: none" href="index.php?page=user_add_input">

@@ -4,5 +4,5 @@
        // define ( 'DB_PASSWORD', '29e1d52c' );
        define ( 'DB_DNS', 'mysql:host=localhost;dbname=web-library' );
        define ( 'DB_USER', 'root' );
-       define ( 'DB_PASSWORD', '' );
+       define ( 'DB_PASSWORD', 'root' );
 ?>
