@@ -1,0 +1,151 @@
+.search-book {
+    padding: 30px 60px;
+}
+
+.search-book-item {
+    margin-bottom: 20px;
+}
+
+.search-book-item label {
+    width: 80px;
+    margin: 0px;
+}
+
+select,
+.input_search {
+    height: 30px;
+    width: 200px;
+    border: 1px solid #2E75B6;
+    background: #E1EAF4;
+    padding: 0px 10px;
+}
+
+.search_btn,
+.add,
+.edit-product,
+.delete-product,
+.clear_btn {
+    border: 1px solid #385D8A;
+    background: #4F81BD;
+    padding: 3px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.delete,
+.edit {
+    background: #92B1D6;
+}
+
+.search_btn {
+    margin-left: 110px;
+}
+
+.search-book-page table,
+.search-book-page th,
+.search-book-page td {
+    border: 0px !important;
+    font-weight: normal;
+}
+
+.search-book-page th {
+    font-weight: bold;
+}
+
+.wrapper {
+    max-width: 600px;
+    text-align: left;
+    border: 2px solid #2E75B6;
+    padding: 40px 36px;
+    align-items: center;
+    margin: auto;
+}
+
+form {
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.form-group-1 {
+    margin-bottom: 16px;
+    margin-top: 10px;
+}
+
+.form-group .form-label {
+    width: 130px;
+    height: 40px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    background-color: #2E75B6;
+    border: 1px solid #41719C;
+    padding: 6px 10px;
+    color: white;
+}
+
+.form-group img {
+    max-height: 100px !important;
+}
+
+.info-book {
+    max-width: 374px;
+    margin-bottom: 0px;
+    align-self: center;
+}
+
+.form-label span {
+    color: #DE2710;
+}
+
+.form-group .form-input {
+    border: 1px solid #41719C;
+    width: 260px;
+}
+
+.check-box {
+    align-self: center;
+    margin-right: 10px;
+}
+
+.btn-signup {
+    text-align: center;
+}
+
+.edit-book-btn {
+    background-color: #2E75B6;
+    border: 1px solid #41719C;
+    width: 150px;
+    padding: 12px 10px;
+    text-align: -webkit-center;
+    margin-top: 20px;
+    border-radius: 8px;
+    color: white;
+}
+
+.input-date {
+    width: 181px !important;
+    padding: 0px 10px;
+    color: black !important;
+}
+
+.error {
+    color: red;
+}
+
+.img_file {
+    align-self: center;
+}
+
+.img_file:focus {
+    outline: none !important;
+}
+
+@media (min-width: 768px) {
+    .search-book-page th {
+        white-space: nowrap;
+    }
+}
