@@ -94,7 +94,18 @@
 					require_once "app/controller/UserHistoryController.php";
 					new UserHistoryController();
 					break;
-				
+				case "user_edit":
+					require_once "app/controller/EditUserController.php";
+					new EditUserController();
+					break;
+				case "user_edit_confirm":
+					require_once "app/controller/EditUserController.php";
+					new EditUserController();
+					break;
+				case "user_edit_complete":
+					require_once "app/controller/EditUserController.php";
+					new EditUserController();
+					break;
 				}
 				
 		}
