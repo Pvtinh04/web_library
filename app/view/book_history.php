@@ -15,7 +15,7 @@
 
 <body>
 
-    <div class="main">
+    <div class="main-">
         <form action="" method="POST" id="form" enctype="multipart/form-data">
             <div class="wrapper">
                 <div class="search-">
@@ -25,13 +25,13 @@
                             <select class="hello" id="bookId" name="bookId">
                                 <option value=""></option>
                                 <?php
-                                for ($i = 0; $i < count($books); $i++) {
-                                    if ($books[$i]['id'] === $_SESSION['bookId']) {
-                                        echo '<option value="' . $books[$i]['id'] . '" selected="selected">' . $books[$i]['name'] . '</option>';
+                                 foreach ($books as $key => $book) {
+                                    if ($book->id === $_SESSION['bookId']) {
+                                      echo '<option value="' . $book->id . '" selected="selected">' . $book->name . '</option>';
                                     } else {
-                                        echo '<option value="' . $books[$i]['id'] . '">' . $books[$i]['name'] . '</option>';
+                                      echo '<option value="' .$book->id . '">' . $book->name . '</option>';
                                     }
-                                }
+                                  }
                                 ?>
                             </select>
                         </div>
@@ -42,9 +42,13 @@
                             <select class="hello" id="userId" name="userId">
                                 <option value=""></option>
                                 <?php
-                                foreach ($users as $user) {
-                                    echo '<option value="' . $user["id"] . '">' . $user["name"] . '</option>';
-                                }
+                                foreach ($users as $key => $user) {
+                                    if ($user->id  === $_SESSION['userId']) {
+                                      echo '<option value="' . $user->id  . '" selected="selected">' . $user->name  . '</option>';
+                                    } else {
+                                      echo '<option value="' . $user->id . '">' . $user->name . '</option>';
+                                    }
+                                  }
                                 ?>
                             </select>
                         </div>
