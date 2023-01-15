@@ -163,10 +163,10 @@
                 params.append("action", "query");
                 params.append("type", "json");
                 if (this.book_id.length > 0) {
-                    params.append("book_id", this.book_id.join(","))
+                    params.append("book_id", this.book_id.filter(item => Number(item) > 0).join(","))
                 }
                 if (this.user_id.length > 0) {
-                    params.append("user_id", this.user_id.join(","))
+                    params.append("user_id", this.user_id.filter(item => Number(item) > 0).join(","))
                 }
 
                 if (!!this.status) {
@@ -363,11 +363,11 @@
                         allowClear: true,
                         placeholder: "Chọn ngày quá hạn",
                         data: [
+                            {id: "", text: ""},
                             ...this.date.map(item => ({
                                 id: item.key,
                                 text: item.value
                             })),
-                            {id: "", text: ""}
                         ]
                     })
                     select2.on("select2:select", event => {

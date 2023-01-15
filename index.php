@@ -7,7 +7,13 @@
    include_once 'app/common/define.php';
    include_once 'app/model/model.php';
    include_once 'app/model/UserModel.php';
-   
+
+   if (isset($_GET['type']) && $_GET['type'] === 'json') {
+       include_once 'app/controller/controller.php';
+       $controll = new Controller();
+       $controll->Controllers();
+       die;
+   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +50,8 @@ if (file_exists('app/view/'.$page.'.php')) {
             $controll = new Controller();
             $controll->Controllers();
 
-            $userControllers = new CreateBookController();
-            $userControllers->confirm();
+//            $userControllers = new CreateBookController();
+//            $userControllers->confirm();
   } else {
     echo "<h2 style='' class='err404'>Trang không tồn tại!</h2>";
   }
