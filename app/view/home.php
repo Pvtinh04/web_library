@@ -23,6 +23,9 @@
                 <a style="text-decoration: none" href="index.php?page=user_add_input">
                     <li style="color:blue;border:none" class="list-group-item">Thêm mới</li>
                 </a>
+                <a style="text-decoration: none" href="index.php?page=reset_password_form">
+                    <li style="color:blue;border:none" class="list-group-item">Reset Password</li>
+                </a>
             </ul>
         </div>
         <div class="col">
