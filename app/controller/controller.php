@@ -104,7 +104,11 @@
 					require_once "app/controller/UserHistoryController.php";
 					new UserHistoryController();
 					break;
-				
+				case "borrow_book_input":
+					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
+					require_once "app/controller/BorrowBookController.php";
+					new BorrowBookController();
+					break;
 				}
 				
 		}
