@@ -186,4 +186,15 @@ left join users as u on u.id = t.user_id where ";
 			// }
 			return $this->pdo->query($query_history)->fetchAll(PDO::FETCH_ASSOC);
 		}
-}
+		public function getBookTransactionsUser(){
+			$query = "SELECT DISTINCT book_transactions.user_id,users.id,users.name FROM `book_transactions` INNER JOIN users ON book_transactions.user_id = users.id
+			WHERE `return_plan_date` >`return_actual_date`;";
+			return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+
+		}
+		public function getBookTransactionsBook(){
+			$query = "SELECT book_transactions.book_id,books.id,books.quantity, books.name ,COUNT(book_transactions.book_id) AS countbook FROM book_transactions INNER JOIN books ON book_transactions.book_id = books.id GROUP BY book_id Having books.quantity > countbook";
+			return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+
+		}
+} 

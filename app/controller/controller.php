@@ -109,6 +109,16 @@
 					require_once "app/controller/BorrowBookController.php";
 					new BorrowBookController();
 					break;
+				case "borrow_book_confirm":
+					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
+					require_once "app/controller/BorrowBookController.php";
+					new BorrowBookController();
+					break;
+				case "borrow_book_complete":
+					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
+					require_once "app/controller/BorrowBookController.php";
+					new BorrowBookController();
+					break;
 				}
 				
 		}

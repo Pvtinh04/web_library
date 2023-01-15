@@ -14,19 +14,7 @@
 <div style="width: 109px;  padding: 10px 0;"> 
 <label>  Sách</label> 
 </div> 
-<select name="book" id="book" style="margin-left: 20px; height: 40px; width: 320px; border: 1px solid #42719b;">
-<option value=></option>
-<?php 
-foreach ($books as $key => $value) {
-						
-    ?>
-    <option  <?php if(isset($_POST['book'])  && $_POST["book"]==$value['id']){
-    echo 'selected';
-}  ?> value=<?php  echo $value['id']?>><?php  echo $value['name']?></option>
-    <?php
-}
-?>
-</select>
+<span><?php if(isset($_SESSION['book']['namebook'])){ echo $_SESSION['book']['namebook'];} ?></span>
 </div> 
  <!-- Classify -->
  <div style="width: 450px; text-align: left;">
@@ -40,19 +28,7 @@ foreach ($books as $key => $value) {
 <div style="width: 109px;  padding: 10px 0;"> 
 <label>  Người dùng</label> 
 </div> 
-<select name="user" id="user" style="margin-left: 20px; height: 40px; width: 320px; border: 1px solid #42719b;">
-<option value=></option>
-<?php 
-foreach ($users as $key => $value) {
-						
-    ?>
-    <option  <?php if(isset($_POST['user'])  && $_POST["user"]==$value['id']){
-    echo 'selected';
-}  ?> value=<?php  echo $value['id']?>><?php  echo $value['name']?></option>
-    <?php
-}
-?>
-</select>
+<span><?php if(isset($_SESSION['book']['book'])){ echo $_SESSION['book']['book'];} ?></span>
 </div>
 
  <!-- borrow date  -->
@@ -67,9 +43,7 @@ foreach ($users as $key => $value) {
 <div style="width: 110px;  padding: 10px 0;">
 <label  >Từ ngày</label>
 </div>
-<input type="text" id ="borrow_date"  name="borrow_date"  value="<?php if( isset($_POST['borrow_date'])  && $error["borrow_date"]==''){
-    echo $_POST['borrow_date'];
-} ?>" style="margin-left: 20px; height: 40px; width: 320px; border: 1px solid #42719b;" >
+<span><?php if(isset($_SESSION['book']['borrow_date'])){ echo $_SESSION['book']['borrow_date'];} ?></span>
 </div>
 <!-- date  -->
 <div style="width: 450px; text-align: left;">
@@ -83,9 +57,7 @@ foreach ($users as $key => $value) {
 <div style="width: 110px;  padding: 10px 0;">
 <label  >Ngày trả</label>
 </div>
-<input type="text" id ="give_date"  name="give_date"  value="<?php if( isset($_POST['give_date'])  && $error["give_date"]==''){
-    echo $_POST['give_date'];
-} ?>" style="margin-left: 20px; height: 40px; width: 320px; border: 1px solid #42719b;" >
+<span><?php if(isset($_SESSION['book']['give_date'])){ echo $_SESSION['book']['give_date'];} ?></span>
 </div>
 
 
