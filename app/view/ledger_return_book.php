@@ -8,11 +8,12 @@
           <select class="hello" id="bookId" name="bookId">
             <option value=""></option>
             <?php
-            for ($i = 0; $i < count($books); $i++) {
-              if ($books[$i]['id'] === $_SESSION['bookId']) {
-                echo '<option value="' . $books[$i]['id'] . '" selected="selected">' . $books[$i]['name'] . '</option>';
+            
+            foreach ($books as $key => $book) {
+              if ($book->id === $_SESSION['bookId']) {
+                echo '<option value="' . $book->id . '" selected="selected">' . $book->name . '</option>';
               } else {
-                echo '<option value="' . $books[$i]['id'] . '">' . $books[$i]['name'] . '</option>';
+                echo '<option value="' .$book->id . '">' . $book->name . '</option>';
               }
             }
             ?>
@@ -25,11 +26,11 @@
           <select class="hello" id="userId" name="userId">
             <option value=""></option>
             <?php
-            for ($i = 0; $i < count($users); $i++) {
-              if ($users[$i]['id'] === $_SESSION['userId']) {
-                echo '<option value="' . $users[$i]['id'] . '" selected="selected">' . $users[$i]['name'] . '</option>';
+            foreach ($users as $key => $user) {
+              if ($user->id  === $_SESSION['userId']) {
+                echo '<option value="' . $user->id  . '" selected="selected">' . $user->name  . '</option>';
               } else {
-                echo '<option value="' . $users[$i]['id'] . '">' . $users[$i]['name'] . '</option>';
+                echo '<option value="' . $user->id . '">' . $user->name . '</option>';
               }
             }
             ?>
