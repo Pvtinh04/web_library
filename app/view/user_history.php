@@ -19,9 +19,6 @@
 	}
 </style>
 <body>
-	<button class="custombackhome"><a href="../../index.php"><img
-				src="https://img.icons8.com/material-outlined/24/FFFFFF/home--v2.png" /> Trang chủ </a></button>
-
 	<div class="container">
 		<form method="GET">
 			<div class="col-md-12">

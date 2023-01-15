@@ -13,7 +13,7 @@
     <title>Sửa nội dung sách</title>
 </head>
 <body>
-<button class="custombackhome"><a href="index.php?page=home"><img src="https://img.icons8.com/material-outlined/24/FFFFFF/home--v2.png"/>Trang chủ</a></button>
+
     <div class="component container">
     <form name='classroom_input' action='' method='POST' enctype="multipart/form-data" class="col-sm-12">  
     <div class="col-md-12">  

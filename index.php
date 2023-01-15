@@ -46,6 +46,8 @@
 </head>
  
 <body>
+<a href="index.php?page=home">
+<button class="btn btn-info"><img src="https://img.icons8.com/material-outlined/24/FFFFFF/home--v2.png"/>Trang chủ</button></a>
 <?php 
 
 $page = "home";
