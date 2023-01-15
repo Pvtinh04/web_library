@@ -92,7 +92,7 @@ foreach ($users as $key => $value) {
 <!-- BTN Submit -->
 
 <div style="width: 300px; margin: 20px auto; display: flex; justify-content: center;">
-<input type="submit" value="Xác nhận" style="background-color:#5b9bd5;height: 45px; width: 130px; font-size: 15px; border-radius: 5px; color: white;">
+<input type="submit" value="Mượn sách" style="background-color:#5b9bd5;height: 45px; width: 130px; font-size: 15px; border-radius: 5px; color: white;">
 </div>
 </form>
 </div>

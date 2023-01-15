@@ -197,4 +197,32 @@ left join users as u on u.id = t.user_id where ";
 			return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
 
 		}
-} 
+			public function getBookID($id)
+    {
+        $query = $this->pdo->prepare("SELECT * FROM books where id = $id");
+        $query->setFetchMode(PDO::FETCH_OBJ);
+        $query->execute();
+        $data = [];
+        while ($row = $query->fetch()) {
+            $data[] = $row;
+        }
+        return $data;
+	
+    }
+	public function getUserID($id)
+    {
+        $query = $this->pdo->prepare("SELECT * FROM users where id = $id");
+        $query->setFetchMode(PDO::FETCH_OBJ);
+        $query->execute();
+        $data = [];
+        while ($row = $query->fetch()) {
+            $data[] = $row;
+        }
+        return $data;
+	
+    }
+	public function addTransaction($book_id,$user_id,$borrow,$plan,$update){
+		$sql = "INSERT INTO `book_transactions`( `book_id`, `user_id`, `borrowed_date`, `return_plan_date`, `updated`, `created`) VALUES ('$book_id','$user_id','$borrow','$plan','$update','$update')";
+        return $this->pdo->query($sql);
+	}
+}

@@ -85,7 +85,7 @@
 <!-- BTN Submit -->
 
 <div style="width: 300px; margin: 20px auto; display: flex; justify-content: center;">
-<a href="index.php?page=user_add_input"><input  type="button" value="Sửa lại" style="margin-right:5px;background-color:#5b9bd5;height: 45px; width: 130px; font-size: 15px; border-radius: 5px; color: white;"></a>
+<button  style="margin-right:5px;background-color:#5b9bd5;height: 45px; width: 130px; font-size: 15px; border-radius: 5px; color: white;" type="button" id="btn-back" name="back" onclick="history.back()">Sửa lại</button>
 <input name ="submit_add_complete" type="submit" value="Đăng ký" style="margin-left:5px;background-color:#5b9bd5;height: 45px; width: 130px; font-size: 15px; border-radius: 5px; color: white;">
 </div>
 </form>

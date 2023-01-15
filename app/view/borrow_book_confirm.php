@@ -14,7 +14,11 @@
 <div style="width: 109px;  padding: 10px 0;"> 
 <label>  Sách</label> 
 </div> 
-<span><?php if(isset($_SESSION['book']['namebook'])){ echo $_SESSION['book']['namebook'];} ?></span>
+<span><?php if(isset($_SESSION['borrow']['book'])){ 
+    foreach($books as $key => $value){
+      echo $value->name;
+    }
+} ?></span>
 </div> 
  <!-- Classify -->
  <div style="width: 450px; text-align: left;">
@@ -28,7 +32,11 @@
 <div style="width: 109px;  padding: 10px 0;"> 
 <label>  Người dùng</label> 
 </div> 
-<span><?php if(isset($_SESSION['book']['book'])){ echo $_SESSION['book']['book'];} ?></span>
+<span><?php if(isset($_SESSION['borrow']['user'])){ 
+    foreach($users as $key => $value){
+      echo $value->name;
+    }
+} ?></span>
 </div>
 
  <!-- borrow date  -->
@@ -43,7 +51,7 @@
 <div style="width: 110px;  padding: 10px 0;">
 <label  >Từ ngày</label>
 </div>
-<span><?php if(isset($_SESSION['book']['borrow_date'])){ echo $_SESSION['book']['borrow_date'];} ?></span>
+<span><?php if(isset($_SESSION['borrow']['borrow_date'])){ echo $_SESSION['borrow']['borrow_date'];} ?></span>
 </div>
 <!-- date  -->
 <div style="width: 450px; text-align: left;">
@@ -57,13 +65,13 @@
 <div style="width: 110px;  padding: 10px 0;">
 <label  >Ngày trả</label>
 </div>
-<span><?php if(isset($_SESSION['book']['give_date'])){ echo $_SESSION['book']['give_date'];} ?></span>
+<span><?php if(isset($_SESSION['borrow']['give_date'])){ echo $_SESSION['borrow']['give_date'];} ?></span>
 </div>
 
 
 <!-- BTN Submit -->
-
 <div style="width: 300px; margin: 20px auto; display: flex; justify-content: center;">
+<button  style="margin-right:5px;background-color:#5b9bd5;height: 45px; width: 130px; font-size: 15px; border-radius: 5px; color: white;" type="button" id="btn-back" name="back" onclick="history.back()">Sửa lại</button>
 <input type="submit" value="Xác nhận" style="background-color:#5b9bd5;height: 45px; width: 130px; font-size: 15px; border-radius: 5px; color: white;">
 </div>
 </form>
