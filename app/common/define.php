@@ -5,4 +5,9 @@
        define ( 'DB_DNS', 'mysql:host=localhost;dbname=web-library' );
        define ( 'DB_USER', 'root' );
        define ( 'DB_PASSWORD', 'root' );
+
+       define("ROOT", dirname(__FILE__, 3));
+
+
+       define( 'URI', $_SERVER['REQUEST_URI'] );
 ?>

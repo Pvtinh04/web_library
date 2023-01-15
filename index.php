@@ -43,6 +43,9 @@ if (file_exists('app/view/'.$page.'.php')) {
             include_once 'app/controller/controller.php';
             $controll = new Controller();
             $controll->Controllers();
+
+            $userControllers = new CreateBookController();
+            $userControllers->confirm();
   } else {
     echo "<h2 style='' class='err404'>Trang không tồn tại!</h2>";
   }

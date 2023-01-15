@@ -6,6 +6,7 @@
 		{
 			$this->model = new Model(); 
 		}
+
 		public function Controllers()
 		{
 			if (isset($_GET['page'])) {
@@ -102,6 +103,16 @@
 				
 				}
 				
+		}
+		/**
+		 * View
+		 */
+		public function view(string $path, array $data = []): void
+		{
+			if (is_array($data)) {
+				extract($data);
+			}
+			require(ROOT . '/app/views/' . $path . '.php');
 		}
 	}
 
