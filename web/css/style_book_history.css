@@ -1,0 +1,123 @@
+.main- {
+    padding: 5%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+
+}
+.wrapper .search- {
+    padding: 32px 48px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+form .form-group {
+    width: 100%;
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.form-group .form-label {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    text-align: center;
+    margin-right: 16px;
+    margin-bottom: 0;
+    color: #000;
+
+}
+
+.form-group .form-input {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex: 1 1 0;
+}
+
+.form-group .form-input input[type="text"] {
+    width: 100%;
+    background-color: #e1eaf4;
+    padding: 8px 4px;
+    border: 2px solid #4d7aa2;
+    border-radius: 2px;
+}
+
+.form-group .form-input #bookId {
+    width: 100%;
+    background-color: #e1eaf4;
+    padding: 10px 4px;
+    border: 2px solid #4d7aa2;
+    border-radius: 2px;
+
+}
+
+.form-group .form-input #userId {
+    width: 100%;
+    background-color: #e1eaf4;
+    padding: 10px 4px;
+    border: 2px solid #4d7aa2;
+    border-radius: 2px;
+
+}
+
+
+form .submit-btn {
+    margin: auto;
+    text-align: center;
+    width: 120px;
+    color: #fff;
+    background-color: #08c;
+    font-size: 14px;
+    padding: 12px;
+    border: 2px solid #4d7aa2;
+    border-radius: 6px;
+}
+
+.main .count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+}
+
+.main .button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+}
+
+.btn {
+    text-align: center;
+    width: 120px;
+    color: #fff;
+    background-color: #08c;
+    font-size: 14px;
+    padding: 12px;
+    border: 2px solid #385d8b;
+    border-radius: 6px;
+}
+
+.main .student-list {
+    padding: 32px;
+}
+
+.student-list .student-table {
+    width: 100%;
+}
+
+.student-list .student-table tr {
+    width: 100%;
+    height: 32px;
+}

@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../../web/css/base.css">
-    <title>Document</title>
+    <title>Reset Password</title>
 </head>
 <body>
-    <?php
-            require '../controllers/reset_password.php';     
-    ?>
     <div class="timetable">
         <form class="form" method="POST" action="">
             <div class="main">
