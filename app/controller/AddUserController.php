@@ -106,9 +106,11 @@
 								} 
 							}
 						}
+						$nameavtar =pathinfo($_FILES['avatar']['name'], PATHINFO_FILENAME)."_".date('YmdHis').".".pathinfo($target_file,PATHINFO_EXTENSION);
 						$target_file = $target_dir_tmp . pathinfo($_FILES['avatar']['name'], PATHINFO_FILENAME)."_".date('YmdHis').".".pathinfo($target_file,PATHINFO_EXTENSION);
 						if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
-							$_SESSION["user"]["avatar"] =$target_file;
+							$_SESSION["user"]["avatar"] =$nameavtar;
+							$_SESSION["user"]["pathfile"] =$target_file;
 						} else {
 							$_SESSION["user"]["avatar"] = "Sorry, there was an error uploading your file.";
 						}
@@ -133,7 +135,7 @@
 						if ($add_user) {
 							$cusID = $this->model->pdo->lastInsertId();
 							$target_dir_id = "web/avatar/".$cusID."/";
-							$target_file_id = str_replace("/"."tmp/","/"."$cusID/",$_SESSION["user"]["avatar"]);
+							$target_file_id = str_replace("/"."tmp/","/"."$cusID/",$_SESSION["user"]["pathfile"]);
 							if (!file_exists($target_dir_id)){
 								mkdir($target_dir_id , 0777, true);
 							} else {
@@ -144,16 +146,13 @@
 									}
 								}
 							}
-							if (rename($_SESSION["user"]["avatar"], $target_file_id)) {
-								$avatar =$target_file_id;
-							}
-							unset($_SESSION["user"]);//delete Session variable
-
-							$update_avatar = $this->model->updateAvatar($avatar,$cusID);
-							if($update_avatar){
+							
+							if (rename($_SESSION["user"]["pathfile"], $target_file_id)) {
 								echo "<script>location.href = 'index.php?page=user_add_complete';</script>";
 
-							} 
+							}
+							
+							
 						}
 
 
@@ -162,6 +161,7 @@
 					include_once "./app/view/".$page.".php";
 					break;
 				case 'user_add_complete':
+					unset($_SESSION["user"]);
 					include_once "./app/view/".$page.".php";
 					break;
             }

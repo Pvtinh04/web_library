@@ -61,7 +61,7 @@
             if (!empty($_SESSION['user']["avatar"])){
                 ?>
                 
-                <img style ="display: block;height:150px " src="<?php echo $_SESSION['user']["avatar"]; ?>" alt="">
+                <img style ="display: block;height:150px " src="./web/avatar/tmp/<?php echo $_SESSION['user']["avatar"]; ?>" alt="">
             <?php
             }
             ?>
