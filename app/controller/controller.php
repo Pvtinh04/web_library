@@ -16,8 +16,9 @@
 			}
             switch ($page) {
                 case "transaction":
+                    require_once './app/controller/TransactionController.php';
                     new TransactionController();
-                    break;
+                    return true;
 				case "home":
 					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
 					include_once "./app/view/".$page.".php";
