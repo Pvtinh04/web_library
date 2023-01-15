@@ -195,10 +195,10 @@
                 this.transactions = this.originTransaction.filter(item => {
                     const check = [];
                     if (this.book_id.length > 0) {
-                        check.push(this.book_id.includes(Number(item.book_id)))
+                        check.push(this.book_id.filter(item => Number(item) > 0).includes(Number(item.book_id)))
                     }
                     if (this.user_id.length > 0) {
-                        check.push(this.user_id.includes(Number(item.user_id)))
+                        check.push(this.user_id.filter(item => Number(item) > 0).includes(Number(item.user_id)))
                     }
                     if (!!this.status) {
                         check.push(item.status.key === this.status)
