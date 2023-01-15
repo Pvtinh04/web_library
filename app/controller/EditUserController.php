@@ -7,8 +7,7 @@
             $page = $_GET['page'];
             switch ($page) {
                 case 'user_edit':
-					// đoạn này phải thay getUserById(1) thành getUserById($id) vs id là id mà user muốn sửa thông tin
-                    $id=31;
+					$id=$_GET['id'];
                     $userInfo = $this->model->getUserById($id);
                     if (empty($userInfo)){
                         $userInfo = array("name"=>"", "user_id"=>"", "type"=>"","avatar"=>"","description"=>"");
