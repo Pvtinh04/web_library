@@ -41,25 +41,27 @@ require_once "app/model/AdminModel.php";
                     $pass=$login_id="";
                     $passErr[]="";
                     $i=1;
-
+                    $result = $this->model->alladmins();
                     error_reporting(0);
-                    for($i = 0; $i < 10000; $i++){
-                        if (isset($_POST["resetpw".$i])) {
-                            if (empty($_POST["newpass".$i])) {
-                                $passErr[$i]="Hãy nhập mật khẩu mới";
-                            } else {
-                                $pass=$_POST["newpass".$i];
-                                $login_id = $_POST["idadmin".$i];
-                                if(strlen($pass) < 6){
-                                    $passErr[$i] = "Hãy nhập mật khẩu có tối thiểu 6 ký tự";
-                                } else {
-
-                                    updatePassword($login_id, $pass);
-                                    header('Location: reset_password_form.php');
-                                }
-                            }   
-                        }   
+                    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                       $login_id = $_POST['reset_passowrd'];
+                       print_r($_POST);
+                       
+                       if (empty($_POST["newpass".$login_id])) {
+                        $passErr[$login_id]="Hãy nhập mật khẩu mới";
+                       } else {
+                            if (strlen($_POST["newpass".$login_id]) < 6){
+                            $passErr[$login_id]= "Hãy nhập mật khẩu có tối thiểu 6 ký tự";
+                           } else {
+                            $pass = $_POST["newpass".$login_id];
+                            $this->model->updatePassword($login_id, $pass);
+                            header('Location: index.php?page=reset_password_form');
+                           }
+                       }
+                   
+                        
                     }
+                
                     include_once "./app/view/".$page.".php";
                     break;
                 default:
