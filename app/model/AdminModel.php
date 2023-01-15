@@ -41,7 +41,7 @@
             function alladmins(){
 
                 
-                $sqladmins = "SELECT * FROM `admins` WHERE reset_password_token <> ''";
+                $sqladmins = "SELECT * FROM `admins` WHERE reset_password_token <>''";
                 $listadmins =  $this->pdo -> prepare($sqladmins);
                 $listadmins -> execute();
                 

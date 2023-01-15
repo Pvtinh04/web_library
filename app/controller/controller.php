@@ -6,6 +6,7 @@
 		{
 			$this->model = new Model(); 
 		}
+
 		public function Controllers()
 		{
 			if (isset($_GET['page'])) {
@@ -14,6 +15,10 @@
 				$page =  'home';
 			} 
             switch ($page) {
+                case "transaction":
+                    require_once "app/controller/TransactionController.php";
+                    new TransactionController();
+                    break;
 				case "home":
 					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
 					include_once "./app/view/".$page.".php";
@@ -48,6 +53,11 @@
 					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
 					require_once "app/controller/AddUserController.php";
 					new AddUserController();
+					break;
+				case "user_search":
+					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
+					require_once "app/controller/UserSearchController.php";
+					new UserSearchController();
 					break;
 				case "transaction":
 					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
@@ -105,9 +115,23 @@
 				case "user_edit_complete":
 					require_once "app/controller/EditUserController.php";
 					new EditUserController();
+				case "borrow_book_input":
+					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
+					require_once "app/controller/BorrowBookController.php";
+					new BorrowBookController();
 					break;
 				}
 				
+		}
+		/**
+		 * View
+		 */
+		public function view(string $path, array $data = []): void
+		{
+			if (is_array($data)) {
+				extract($data);
+			}
+			require(ROOT . '/app/views/' . $path . '.php');
 		}
 	}
 
