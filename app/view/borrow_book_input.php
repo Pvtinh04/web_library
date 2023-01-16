@@ -36,12 +36,6 @@
 ?>
 </select>
 </div> 
-<?php 
-var_dump($user_exceed);
-foreach ($users as $keys => $values) {
-	
-}
-?>
  <!-- Classify -->
  <div style="width: 450px; text-align: left;">
     <label style="color: red">
