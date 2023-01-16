@@ -1,3 +1,5 @@
+<?php if (!isset($_SESSION['authen']))  header('Location: index.php?page=login'); ?>
+
 <div class="wrapper">
     <div class="form-group form-group-1">
         <div class="form-label">Tên sách</div>

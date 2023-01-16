@@ -1,3 +1,5 @@
+<?php if (!isset($_SESSION['authen']))  header('Location: index.php?page=login'); ?>
+
 <div class="container search-book-page">
     <form class="search-book" method="post" action="">
         <div class="search-book-item">

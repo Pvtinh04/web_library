@@ -1,3 +1,5 @@
+<?php if (!isset($_SESSION['authen']))  header('Location: index.php?page=login'); ?>
+
 <div style="border: 1px solid #5b9bd5; height:500px" class="container">
     <div class="row" style="margin-bottom:5px;">
         <label for="">Tên login: <span><?php if (isset($_SESSION['authen'])) {

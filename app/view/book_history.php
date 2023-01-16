@@ -1,4 +1,4 @@
-<?php if (!isset($_GET['page'])) header('location:../../index.php?page=book_history'); ?>
+<?php if (!isset($_SESSION['authen']))  header('Location: index.php?page=login'); ?>
 
 <!DOCTYPE html>
 <html lang="en">

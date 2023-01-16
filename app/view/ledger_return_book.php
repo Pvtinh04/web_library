@@ -1,4 +1,4 @@
-<?php if (!isset($_GET['page'])) header('location:../../index.php?page=ledger_return_book'); ?>
+<?php if (!isset($_SESSION['authen']))  header('Location: index.php?page=login'); ?>
 <div class="container-ledger_return_book">
   <form action="" method="POST" id="form" enctype="multipart/form-data">
     <div class="search">

@@ -1,3 +1,4 @@
+<?php if (!isset($_SESSION['authen']))  header('Location: index.php?page=login'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
