@@ -4,7 +4,7 @@
 //        define ( 'DB_PASSWORD', '29e1d52c' );
        define ( 'DB_DNS', 'mysql:host=127.0.0.1;dbname=web-library;charset=utf8' );
        define ( 'DB_USER', 'root' );
-       define ( 'DB_PASSWORD', 'root' );
+       define ( 'DB_PASSWORD', '' );
 
        define("ROOT", dirname(__FILE__, 3));
 

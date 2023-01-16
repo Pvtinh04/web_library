@@ -5,10 +5,14 @@
         public function __construct(){
             $this->model = new UserModel(); 
             $page = $_GET['page'];
+            
             switch ($page) {
+                
+
                 case 'user_edit':
 					$id=$_GET['id'];
                     $userInfo = $this->model->getUserById($id);
+                    // print_r($userInfo);
                     if (empty($userInfo)){
                         $userInfo = array("name"=>"", "user_id"=>"", "type"=>"","avatar"=>"","description"=>"");
                     }
@@ -93,7 +97,7 @@
 					break;
 				case 'user_edit_confirm':
 					date_default_timezone_set("Asia/Ho_Chi_Minh");
-                    $id_user  = $_SESSION['user_id'];
+                    $id_user  = $_SESSION['id'];
                     $userInfo = $this->model->getUserById($id_user);
                     if (isset($_POST['submit_edit_complete'])) {
                         $name = $_SESSION['user_name'];
@@ -116,6 +120,7 @@
                         copy($avatar_old, $avatar);
                         $_SESSION['user_avatar'] = $target_file_id;
                         if ($this->model->edit_user($id, $id_user, $name, $type, $avatar, $description)) {
+                            // echo "trang";
                             unlink($avatar_old);
                             unset($_SESSION['user_name']); //delete Session variable
                             unset($_SESSION['user_classify']); //delete Session variable
