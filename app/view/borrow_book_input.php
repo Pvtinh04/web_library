@@ -1,4 +1,4 @@
-
+<h1 class="text-center">Thêm mới mượn sách</h1>
 <div class="container" style="height: 550px; width: 550px; margin: 15px auto; border: 1px solid #5b9bd5; display: flex; justify-content:center; flex-direction: column; align-items: center;">
 <form method="post" enctype="multipart/form-data" action="">
 <!-- name -->
