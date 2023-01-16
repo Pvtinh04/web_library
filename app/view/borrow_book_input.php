@@ -10,6 +10,9 @@
     ?>
     </label>
 </div>
+<?php
+
+?>
 <div style="display: flex; width: 450px; justify-content: left; "> 
 <div style="width: 109px;  padding: 10px 0;"> 
 <label>  Sách</label> 
@@ -17,17 +20,28 @@
 <select name="book" id="book" style="margin-left: 20px; height: 40px; width: 320px; border: 1px solid #42719b;">
 <option value=></option>
 <?php 
-foreach ($books as $key => $value) {
-						
+ foreach ($books as $keys => $values) {
+	foreach ($book_exceed as $key => $value) {
+
+       if ($values->id != $value["book_id"]){
+    					
     ?>
-    <option  <?php if(isset($_POST['book'])  && $_POST["book"]==$value['id']){
+    <option  <?php if(isset($_POST['book'])  && $_POST["book"]==$values->id){
     echo 'selected';
-}  ?> value=<?php  echo $value['id']?>><?php  echo $value['name']?></option>
+}  ?> value=<?php  echo $values->id?>><?php  echo $values->name?></option>
     <?php
+    }
+}
 }
 ?>
 </select>
 </div> 
+<?php 
+var_dump($user_exceed);
+foreach ($users as $keys => $values) {
+	
+}
+?>
  <!-- Classify -->
  <div style="width: 450px; text-align: left;">
     <label style="color: red">
@@ -43,13 +57,19 @@ foreach ($books as $key => $value) {
 <select name="user" id="user" style="margin-left: 20px; height: 40px; width: 320px; border: 1px solid #42719b;">
 <option value=></option>
 <?php 
-foreach ($users as $key => $value) {
+
+foreach ($users as $keys => $values) {
+	foreach ($user_exceed as $key => $value) {
+
+       if ($values->id != $value["user_id"]){
 						
     ?>
-    <option  <?php if(isset($_POST['user'])  && $_POST["user"]==$value['id']){
+    <option  <?php if(isset($_POST['user'])  && $_POST["user"]==$values->id){
     echo 'selected';
-}  ?> value=<?php  echo $value['id']?>><?php  echo $value['name']?></option>
+}  ?> value=<?php  echo $values->id?>><?php  echo $values->name?></option>
     <?php
+} 
+}
 }
 ?>
 </select>

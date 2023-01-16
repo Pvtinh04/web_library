@@ -14,9 +14,12 @@ require_once "app/model/TransactionModel.php";
 									"user"=>"",
 									"borrow_date"=>"",
 									"give_date"=>"");
+					$now = date("Y-m-d");
 					$valid = true;
-					$users = $this->model->getBookTransactionsUser();
-					$books = $this->model->getBookTransactionsBook();
+					$users = $this->model->getAllUsers();
+					$books = $this->model->getAllBooks();
+					$user_exceed = $this->model->getBookTransactionsUser($now);
+					$book_exceed = $this->model->getBookTransactionsBook();
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         if (empty($_POST["book"])) {
 							$error["book"]="Hãy chọn sách.";
@@ -59,7 +62,7 @@ require_once "app/model/TransactionModel.php";
 							$user_id = $_SESSION['borrow']['user'];
 							$borrown_date = date("Y-m-d", strtotime(implode("-", explode("/", $_SESSION['borrow']['borrow_date']))));
 							$plan_date = date("Y-m-d", strtotime(implode("-", explode("/", $_SESSION['borrow']['give_date']))));
-							 echo $update =date("Y-m-d h:i:s");
+							 $update =date("Y-m-d h:i:s");
 							$res =$this->model->addTransaction($book_id, $user_id,$borrown_date,$plan_date,$update);
 							if($res){
 								header("Location:index.php?page=borrow_book_complete");
