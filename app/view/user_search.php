@@ -47,7 +47,7 @@
                 <tr>
                     <th scope='row'> <?php  echo $key + 1 ?> </th> 
                     <td class=''><?php echo $value["user_id"] ?> </td>
-                    <td class='w-25'><a style='color: black; text-decoration: none' href='index.php?page=user_detail&user_id=<?php echo $value["id"] ?>'> <?php echo $value["name"] ?></a></td>
+                    <td class='w-25'><a style='color: black; text-decoration: none' href='index.php?page=user_detail&id=<?php echo $value["id"] ?>'> <?php echo $value["name"] ?></a></td>
                     <td class='' style='width: 10%'> <?php echo $listType[$value["type"]] ?> </td>
                     <td class='w-25'> <?php echo $value["description"] ?> </td>
                     <td style='width: 20%'>

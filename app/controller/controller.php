@@ -59,6 +59,11 @@
 					require_once "app/controller/UserSearchController.php";
 					new UserSearchController();
 					break;
+				case "user_detail":
+					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
+					require_once "app/controller/UserSearchController.php";
+					new UserSearchController();
+					break;
 				case "transaction":
 					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
 					require_once "app/controller/TransactionController.php";
