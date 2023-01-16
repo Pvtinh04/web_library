@@ -53,7 +53,7 @@
                     <td style='width: 20%'>
                         <!-- <button type='button' class='btn delete-product' data-bs-toggle='modal' data-bs-target='#exampleModal' data-id='" . $value["id"] . "'>Xoá</button> -->
                         <a class='btn ' href='javascript:deluser(<?php echo $value['id'] ?>,"<?php echo $value['name'] ?>")'>Xóa</a>
-                        <a class='btn edit-product' href='index.php?page=book_edit_input_view&id=" . $value["id"] . "'>Sửa</a>
+                        <a class='btn edit-product' href='index.php?page=user_edit&id=<?php echo $value['id'];?>'>Sửa</a>
                     </td>
                 </tr>
                 <?php
