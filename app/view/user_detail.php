@@ -39,7 +39,7 @@
 <body>
     <div class="container">
         <h1 class="text-center mt-5">Thông tin người dùng</h1>
-        <?php var_dump($user); ?>
+       
         <form class="containers">
             <div class="form-group row mt-4">
                 <label   class="col-sm-2" for="name">Họ và tên</label>

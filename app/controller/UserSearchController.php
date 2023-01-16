@@ -29,7 +29,7 @@
 					break;
                 case 'user_detail':
                     if (isset($_GET['id'])){
-                        echo $_GET['id'];
+                      
                         $id = $_GET['id'];
                         $user = $this->model->getUserById($id);
                     }
