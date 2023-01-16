@@ -121,9 +121,9 @@
                     <?php 
                         if(isset($_SESSION['avatarCorrect'])){
                             $avatarNew=$_SESSION['avatarCorrect'];
-                            echo "<img src='../../web/avatar/bookClient/$avatarNew' class='image' id='image'>";
+                            // echo "<img src='web/avatar/bookClient/$avatarNew' class='image' id='image'>"; <-- bookClient directory not found ????
                         }else{
-                            echo "<img src='../../web/avatar/$id/$avatarPast' class='image' id='image'>" ;
+                            echo "<img src='web/avatar/$id/$avatarPast' class='image' id='image'>" ;
                         }
                     ?>
                     </div>

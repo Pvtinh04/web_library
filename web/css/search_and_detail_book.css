@@ -97,6 +97,13 @@ form {
     align-self: center;
 }
 
+.delete-success{
+    text-align: center;
+    color: green;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .form-label span {
     color: #DE2710;
 }
@@ -142,6 +149,19 @@ form {
 
 .img_file:focus {
     outline: none !important;
+}
+
+.delete-success {
+    animation: hideAnimation 0s ease-in 5s;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes hideAnimation {
+    to {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
 }
 
 @media (min-width: 768px) {

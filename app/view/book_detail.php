@@ -25,7 +25,7 @@
 
     <div class="form-group">
         <div class="form-label">Avatar</div>
-        <img src="<?php echo $book[0]["avatar"] ?>" class="info-book" />
+        <img src="web/avatar/<?php echo $book[0]["id"] ?>/<?php echo $book[0]["avatar"] ?>" class="info-book" />
     </div>
     <div class="btn-signup">
         <a class="btn edit-book-btn" type="submit" href='index.php?page=edit_book&book_id=<?php echo $book[0]["id"] ?>' name="signup">Sửa</a>

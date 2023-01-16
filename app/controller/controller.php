@@ -59,11 +59,6 @@
 					require_once "app/controller/UserSearchController.php";
 					new UserSearchController();
 					break;
-				case "user_detail":
-					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
-					require_once "app/controller/UserSearchController.php";
-					new UserSearchController();
-					break;
 				case "transaction":
 					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
 					require_once "app/controller/TransactionController.php";
@@ -80,6 +75,11 @@
 					new BookController();
 					break;
 				case "book_detail":
+					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
+					require_once "app/controller/BookController.php";
+					new BookController();
+					break;
+				case "book_delete":
 					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
 					require_once "app/controller/BookController.php";
 					new BookController();
@@ -109,17 +109,6 @@
 					require_once "app/controller/UserHistoryController.php";
 					new UserHistoryController();
 					break;
-				case "user_edit":
-					require_once "app/controller/EditUserController.php";
-					new EditUserController();
-					break;
-				case "user_edit_confirm":
-					require_once "app/controller/EditUserController.php";
-					new EditUserController();
-					break;
-				case "user_edit_complete":
-					require_once "app/controller/EditUserController.php";
-					new EditUserController();
 				case "borrow_book_input":
 					// if (!isset($_SESSION['authen']))  header('Location: index.php?page=login');
 					require_once "app/controller/BorrowBookController.php";

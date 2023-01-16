@@ -109,12 +109,12 @@ public function getAllBooks()
 
 	public function checkBookInTransaction($id)
 	{
-		$query = "SELECT book_id  FROM book_transactions WHERE book_id = $id";
+		$query = "SELECT * FROM book_transactions WHERE book_id = $id AND return_actual_date = '0000-00-00'";
 		$result = $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
-		if (count($result[0]) > 0) {
-
-		} else {
-			return true;
+		if (count($result) > 0) {
+            return true;
+        } else {
+            return false;
 		}
 	}
 
@@ -124,4 +124,12 @@ public function getAllBooks()
 		$query = "SELECT *  FROM books WHERE id = $id";
 		return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
 	}
+
+    public function deleteBook($id){
+        $query = "DELETE FROM books WHERE id = $id";
+        $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+        $query = "DELETE FROM book_transactions WHERE book_id = $id"; //delete book transactions when delete book ???
+        $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 }
