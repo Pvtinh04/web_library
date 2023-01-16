@@ -42,9 +42,6 @@
         <div class="col">
             <label for="">Mượn/Trả sách</label>
             <ul class="list-group list-group-flush">
-                <a style="text-decoration: none" href="index.php?page=ledger_return_book">
-                    <li style="color:blue;border:none" class="list-group-item">Tìm kiếm</li>
-                </a>
                 <a style="text-decoration: none" href="index.php?page=borrow_book_input">
                     <li style="color:blue;border:none" class="list-group-item">Thêm mới mượn sách</li>
                 </a>
