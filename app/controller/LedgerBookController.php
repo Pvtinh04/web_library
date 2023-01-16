@@ -24,8 +24,8 @@ require_once "app/model/TransactionModel.php";
                         $data[] = $value;
                     }
                     if (isset($_GET['id'])) {
-                        $result = $this->model->updateReturnActualDate($_GET['id'] + 1);
-                        // var_dump($_GET['id']);
+                        $result = $this->model->updateReturnActualDate($_GET['id'] );
+                       
                         if ($result) {
                             header('location:index.php?page=ledger_return_book');
                         }

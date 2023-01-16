@@ -58,6 +58,7 @@
     </div>
     <div class="list">
       <?php
+      // var_dump($data);
       for ($i = 0; $i < count($data); $i++) {
         $status = '';
         $books_name =  $data[$i]['books_name'];
@@ -77,12 +78,12 @@
               <p class="loan-status">' . $status . '</p>
             </div> ';
         if ($status != "Đã trả") {
-          echo "
+         ?>
             <div class='list-item-action'>
-              <a style='color: #cfdded;' onClick='return confirm(\"Bạn có muốn trả sách $books_name \")' type='button' href='index.php?page=ledger_return_book&id=$i' class='btn-give-book-back'>Trả</a>
+              <a style='color: #cfdded;' class='btn btn-info' href='javascript:planactual(<?php echo $data[$i]['id'] ?>,"<?php echo $books_name ?>")'>Trả</a>
             </div>
           </div>
-            ";
+            <?php 
         } else {
           echo "
             <div class='list-item-action'>
@@ -97,3 +98,14 @@
     <!-- <button class="btn-give-book-back" name="btn-give-book-back' . ($i + 1) . '">Trả</button> -->
   </form>
 </div>
+<script>
+    function planactual(id,name){
+        var id = id;
+        var name = name;
+        var msg = confirm("Bạn chắn chắn muốn xóa user "+name +"?");
+
+    if (msg) {
+        window.location = "index.php?page=ledger_return_book&id="+id;
+    }
+    }
+    </script>

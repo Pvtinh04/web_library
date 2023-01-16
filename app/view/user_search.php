@@ -52,7 +52,7 @@
                     <td class='w-25'> <?php echo $value["description"] ?> </td>
                     <td style='width: 20%'>
                         <!-- <button type='button' class='btn delete-product' data-bs-toggle='modal' data-bs-target='#exampleModal' data-id='" . $value["id"] . "'>Xoá</button> -->
-                        <a class='btn ' href='javascript:deluser(<?php echo $value['id'] ?>,"<?php echo $value['name'] ?>")'>Xóa</a>
+                        <a class='btn delete-product' href='javascript:deluser(<?php echo $value['id'] ?>,"<?php echo $value['name'] ?>")'>Xóa</a>
                         <a class='btn edit-product' href='index.php?page=user_edit&id=<?php echo $value['id'];?>'>Sửa</a>
                     </td>
                 </tr>
@@ -63,37 +63,7 @@
     </table>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Xoá book</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Bạn có chắc chắn muốn xoá <?php ?>?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <a type="button" class="btn btn-primary delete-book-confirm">Xoá</a>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- <script>
-    $('.delete-product').on('click', function(e) {
-        var id = $(this).attr('data-id');
-        $('.delete-user-confirm').attr('data-id', id);
-
-    });
-    $(".delete-user-confirm").on('click', function(e) {
-        var id = $(this).attr('data-id');
-        console.log(id);
-        // location.href="hapusperusahaan.php?id="+id;
-    });
-</script> -->
 <script>
     function deluser(id,name){
         var id = id;
