@@ -26,7 +26,7 @@ class CreateBookController extends Controller
                     throw new ValidationException($errors);
                 }
                 $_SESSION['book'] = $dataBook;
-                Site::redirect( 'app/views/books/confirm.php');
+                Site::redirect( 'app/view/create-books/confirm.php');
             } catch (ValidationException $e) {
                 $errors = $e->getError();
             }
@@ -37,7 +37,7 @@ class CreateBookController extends Controller
             'errors' => $errors ?? [],
         ];
 
-        $this->view('books/create', $data);
+        $this->view('create-books/create', $data);
     }
 
     public function confirm()
@@ -53,7 +53,7 @@ class CreateBookController extends Controller
         ];
         if (isset($_POST['book-create'])) {
             $this->book->create($dataBook);
-            Site::redirect( 'app/views/home.php');
+            Site::redirect( 'app/view/home.php');
         }
         $data = [
             'title' => 'Đăng ký sách',
@@ -61,9 +61,9 @@ class CreateBookController extends Controller
         ];
 
         if (isset($_POST['book-back'])) {
-            Site::redirect( 'app/views/books/create.php');
+            Site::redirect( 'app/view/books/create.php');
         }
-        $this->view('books/confirm', $data);
+        $this->view('create-books/confirm', $data);
     }
 
 

@@ -137,7 +137,7 @@
 			if (is_array($data)) {
 				extract($data);
 			}
-			require(ROOT . '/app/views/' . $path . '.php');
+			require(ROOT . '/app/view/' . $path . '.php');
 		}
 	}
 
